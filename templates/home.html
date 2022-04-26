@@ -1,0 +1,278 @@
+<!-- {% extends 'base.html' %} -->
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Home</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/img/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/img/favicon.png' %}">
+    <link href="{%static '/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static '/css/style.css' %}" rel="stylesheet">
+    <link href="{% static '/css/responsive.css' %}" rel="stylesheet">
+</head>
+<body>
+<header id="masthead" class="site-header">
+        <nav id="primary-navigation" class="site-navigation">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <a class="site-title"><span>Document </span> Classification</a>
+
+                </div>
+
+                <div class="collapse navbar-collapse" id="agency-navbar-collapse">
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li class="active"><a href="/" data-toggle="dropdown">Home</a></li>
+                        {% if request.user.is_authenticated %}
+                        <li><a href="{% url 'upload' %}">Upload</a></li>
+                        {%endif%}
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                        {% if request.user.is_authenticated %}
+                        <li><a href="{% url 'account_logout' %}">Logout</a></li>
+                        <li>{{user.username}}</li>
+                        {%else%}
+
+                        <li><a href="{% url 'account_login' %}">Login</a></li>
+                        <li><a href="{% url 'account_signup' %}">SignUp</a></li>
+
+                        {%endif%}   
+
+
+                    </ul>
+
+                </div>
+
+            </div>   
+        </nav>
+    </header>
+
+    <div id="hero" class="hero overlay">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Welcome to Axis Bank </h1>
+                <p>Badhti Ka Naam Zindagi</p>
+                <!-- <a href="#" class="btn btn-border">Learn more</a> -->
+            </div>
+        </div>
+    </div>
+
+    <main id="main" class="site-main">
+
+        <section class="site-section section-features">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <h2>Axis Bank Digital Savings Account</h2>
+                        <p>Today, technology is an enabler, particularly in banking and finance. To open a savings account – the very first step in your personal finance and wealth creation journey –– you do not need to visit a physical bank branch anymore. It can be done online, i.e. digitally, using your smartphone powered by a secure and stable high-speed internet connection with ease and convenience from the comfort of your home, office, café, or wherever you are. A Digital Savings Account can be opened in a single name seamlessly without physical documentation involved. </p>
+                    </div>
+                    <div class="col-sm-7 hidden-xs">
+                        <img src="{% static '/img/ipad-pro.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="site-section section-services gray-bg text-center">
+            <div class="container">
+                <h2 class="heading-separator">Our Services</h2>
+                <p class="subheading-text">Services Offered Axis Remote Banking · Transfer funds through NEFT or RTGS </p>
+                <div class="row">
+                    <div class="col-md-3 col-xs-6">
+                        <div class="service">
+                            <img src="{% static '/img/anchor.svg' %}" alt="">
+                            <h3 class="service-title">Savings</h3>
+                            <p class="service-info"> Axis Bank provides its customers with the option of choosing from a wide range of Savings Accounts with different features and benefits.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="service">
+                            <img src="{% static '/img/bycicle.svg' %}" alt="">
+                            <h3 class="service-title">Vehicle Loan</h3>
+                            <p class="service-info">Looking to buy a new Bike? Axis Bank’s New Car Loan offers car loans from Rs. 1 Lakh. </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="service">
+                            <img src="{% static '/img/paper-plane.svg' %}" alt="">
+                            <h3 class="service-title">Deliver at your doorstep</h3>
+                            <p class="service-info">Axis bank is happy to deliver your packages right to your doorstep, or to any other place you wish</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="service">
+                            <img src="{% static '/img/photo.svg' %}" alt="">
+                            <h3 class="service-title"> Online KYC</h3>
+                            <p class="service-info">If you are a first time investor trying to open a bank account or invest in mutual funds, you are likely to have come across a term called KYC.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="service">
+                            <img src="{% static '/img/microphone.svg' %}" alt="">
+                            <h3 class="service-title"> Call Support</h3>
+                            <p class="service-info">At Axis Bank, we understand the busy lives and dynamic needs of our customers. </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="service">
+                            <img src="{% static '/img/rocket.svg' %}" alt="">
+                            <h3 class="service-title">Marketing Strategy</h3>
+                            <p class="service-info">Marketing is of vital importance to any business. It is the key process of researching, promoting and selling products or services to your target.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="service">
+                            <img src="{% static '/img/basket.svg' %}" alt="">
+                            <h3 class="service-title">Online Shopping</h3>
+                            <p class="service-info">Shop what you need with Axis Bank. There is a lot on Grab Deals, from groceries to movie tickets to flight tickets.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="service">
+                            <img src="{% static '/img/chemestry.svg' %}" alt="">
+                            <h3 class="service-title">Industry Loans</h3>
+                            <p class="service-info">Axis Bank provides various finances to propel your business in a high growth trajectory</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="site-section section-map-feature text-center">
+
+            <div class="container">
+                <h2>Successfully Classification Done</h2>
+                <p>We help you to automatically classify your document in 60 seconds. </p>
+                <a href="#" class="btn btn-fill">Learn More</a>
+                <div class="row">
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="counter-item">
+                            <p class="counter" data-to="377" data-speed="2000">0</p>
+                            <h3> In progress</h3>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="counter-item">
+                            <p class="counter" data-to="1204" data-speed="2000">0</p>       
+                            <h3>Document Classified</h3>
+                        </div>      
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="counter-item">
+                            <p class="counter" data-to="459" data-speed="1000">0</p>
+                            <h3>Happy Clients</h3>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="counter-item">
+                            <p class="counter" data-to="675" data-speed="1000">0</p>
+                            <h3>Average Deal</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section><!-- /.section-map-feature -->
+
+        <!-- <section class="site-section section-portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="heading-separator">Latest Work</h2>
+                    <p class="subheading-text">This is some of our best work</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="{% static '/img/portfolio-1.jpg' %}" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Portfolio item</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="{% static '/img/portfolio-2.jpg'%}" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Portfolio item</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="{% static '/img/portfolio-3.jpg' %}" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Portfolio item</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="{% static '/img/portfolio-4.jpg' %}" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Portfolio item</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="{% static '/img/portfolio-5.jpg' %}" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Portfolio item</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="{% static '/img/portfolio-6.jpg' %}" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Portfolio item</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="{% static '/img/portfolio-1.jpg' %}" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Portfolio item</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="{% static '/img/portfolio-2.jpg' %}" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Portfolio item</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <section class="site-section section-newsletter text-center">
+            <div class="container">
+                <h2>Subscribe our newsletters</h2>
+                <form class="form-group newsletter-group">
+                    <input type="email" class="form-control" placeholder="Your e-mail" required>
+                    <button class="btn btn-green" type="button">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
+    <script src="{% static '/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static '/js/jquery.slicknav.min.js' %}"></script>
+    <script src="{% static '/js/jquery.countTo.min.js' %}"></script>
+    <script src="{% static '/js/jquery.shuffle.min.js' %}"></script>
+    <script src="{% static '/js/script.js' %}"></script>
+  
+</body>
+</html>
+{% endblock %}
